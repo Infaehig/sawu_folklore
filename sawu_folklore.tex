@@ -1,0 +1,167 @@
+% A LaTeX file with some diagrams of Folklore Argentino
+% Sa Wu, 2020-03-19
+\input{preamble.tex}
+
+% half the side length of cuadro de baile
+\newcommand{\unita}{20}
+% shortened half diagonal of cuadro de baile to make vuelta entera fit into same dimensions
+\newcommand{\unitb}{14}
+% half of the separation between couples in the middle
+\newcommand{\separation}{0.5}
+\newcommand{\padding}{4}
+
+% dimensions of things in diagrams
+\newcommand{\arrowlength}{8pt}
+\newcommand{\arrowwidth}{6pt}
+\newcommand{\nodesize}{6pt}
+\newcommand{\returnoffset}{0.1}
+% color of dancer A, triangle
+\newcommand{\colora}{green}
+% color of dancer B, circle
+\newcommand{\colorb}{blue}
+
+\input{tikzhelpers}
+
+\title{Some Diagrams of Folklore Argentino}
+\author{Sa Wu}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+\section{Caramba}
+\label{sec:caramba}
+
+\begin{figure}[h]
+	\includegraphics[width=\ahalf\textwidth]{caramba/caramba1.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\ahalf\textwidth]{caramba/caramba2.tikz}
+
+	\includegraphics[width=\ahalf\textwidth]{caramba/caramba3.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\ahalf\textwidth]{caramba/caramba4.tikz}
+	\caption{Caramba}
+	\label{fig:caramba}
+\end{figure}
+
+\FloatBarrier
+\section{Chacarera}
+\label{sec:chacarera}
+
+\FloatBarrier
+\section{Gato}
+
+\FloatBarrier
+\section{Escondido}
+
+\FloatBarrier
+\section{Firmeza}
+
+\FloatBarrier
+\section{Zamba}
+\label{sec:zamba}
+
+\FloatBarrier
+\section{Figures in different Collocations}
+\label{sec:figs_collocations}
+
+\FloatBarrier
+\subsection{Colocación}
+\label{subsec:collocations}
+
+\begin{figure}[h]
+	\includegraphics[width=\ahalf\textwidth]{colocaciones/primerab.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\ahalf\textwidth]{colocaciones/dosbr.tikz}
+	\caption{Colocaciónes}
+	\label{fig:collocations:1}
+\end{figure}
+
+\FloatBarrier
+\subsection{Avance y Retroceso}
+\label{subsec:encuentro}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{encuentros/encuentrosb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{encuentros/encuentrost.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{encuentros/encuentrosbr.tikz}
+	\caption{Avance y Retroceso}
+	\label{fig:encuentro}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Rhombo}
+\label{subsec:rhombo}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{rhombos/rhombosb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{rhombos/rhombost.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{rhombos/rhombosbl.tikz}
+	\caption{Rhombo}
+	\label{fig:rhombo}
+\end{figure}
+
+\FloatBarrier
+\subsection{Giro}
+\label{subsec:giros}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{giros/girosb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{giros/girost.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{giros/girosbr.tikz}
+	\caption{Giro}
+	\label{fig:giros}
+\end{figure}
+
+\FloatBarrier
+\subsection{Contragiro}
+\label{subsec:contragiros}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{contragiros/contragirosb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{contragiros/contragirost.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{contragiros/contragirosbl.tikz}
+	\caption{Contragiro}
+	\label{fig:contragiro}
+\end{figure}
+
+\FloatBarrier
+\subsection{Media Vuelta}
+\label{subsec:mediavuelta}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltasb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltast.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltasbr.tikz}
+	\caption{Media Vuelta}
+	\label{fig:mediavuelta}
+\end{figure}
+
+\FloatBarrier
+\subsection{Vuelta Entera}
+\label{subsec:vuelta}
+
+\begin{figure}[h]
+	\includegraphics[width=\athird\textwidth]{vueltas/vueltasb.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{vueltas/vueltast.tikz}
+	\hspace*{\fill}
+	\includegraphics[width=\athird\textwidth]{vueltas/vueltasbr.tikz}
+	\caption{Vuelta Entera}
+	\label{fig:vuelta}
+\end{figure}
+
+\end{document}

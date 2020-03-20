@@ -1,0 +1,6 @@
+\colocacionunob{
+	\mediavueltaa[>-]
+	\girobcl[\colora,->]{}
+	\mediavueltab[>-]
+	\giroacl[\colorb,->]{}
+}

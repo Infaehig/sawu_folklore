@@ -1,2 +1,3 @@
-# sawu_folklore
-Some Latex files
+# Introduction
+
+This is a repository for LaTeX diagrams of some dances of Argentine Folklore
