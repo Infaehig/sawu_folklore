@@ -1,0 +1,366 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{folklore}[2020/30/21 folklore package]
+
+\RequirePackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,shapes.geometric,math}
+
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
+\RequirePackage{xargs}
+
+\newcommand{\fk@scaling}{0.45}
+% half the side length of cuadro de baile
+\newcommand{\fk@unita}{10}
+% half of the separation between couples in the middle
+\newcommand{\fk@separation}{0.5}
+% padding around the whole thing to fit in additional figures
+\newcommand{\fk@padding}{1}
+% scaling for coinciding diagrams
+\newcommand{\fk@samescaling}{0.9}
+
+% dimensions of things in diagrams
+\newcommand{\arrowlength}{3mm}
+\newcommand{\arrowwidth}{2mm}
+\newcommand{\nodesize}{4mm}
+\newcommand{\returnoffset}{0.1}
+% color of dancer A, triangle
+\newcommand{\colora}{green}
+% color of dancer B, circle
+\newcommand{\colorb}{blue}
+
+\tikzmath{
+	real \fk@ah, \fk@as, \fk@asp, \fk@ah, \fk@bz;
+	\fk@ah = 0.5*\fk@unita*\fk@scaling;
+	\fk@as = (\fk@unita+\fk@separation)*\fk@scaling;
+	\fk@asp = \fk@as*sqrt(2)+\fk@padding*\fk@scaling;
+	\fk@bz = 0.55;
+	coordinate \fk@C,\fk@B,\fk@L,\fk@T,\fk@R,\fk@BR,\fk@BL,\fk@TL,\fk@TR;
+	\fk@C = (0,0);
+	\fk@B = (0,-\fk@as);
+	\fk@L = (-\fk@as,0);
+	\fk@T = (0,\fk@as);
+	\fk@R = (\fk@as,0);
+	\fk@BR = (\fk@as,-\fk@as);
+	\fk@BL = (-\fk@as,-\fk@as);
+	\fk@TL = (-\fk@as,\fk@as);
+	\fk@TR = (\fk@as,\fk@as);
+}
+
+\newenvironment{cuadrodebaile}[1][]{
+	\begin{tikzpicture}[shorten >=0.5mm,shorten <=0.5mm,very thick,>={Stealth[length=\arrowlength,width=\arrowwidth]},>->,#1]
+		\draw (-\fk@asp,-\fk@asp) rectangle (\fk@asp,\fk@asp);
+}{
+	\end{tikzpicture}
+}
+
+\newcommand{\fk@tinynode}{\node[minimum size=2mm,inner sep=0mm]}
+\newcommand{\fk@sizednode}[2][]{\node[minimum size=#2*\nodesize,inner sep=0mm,regular polygon,regular polygon sides=3,#1]}
+\newcommand{\nodea}[3][]{\fk@sizednode[\colora,shape border rotate=#3,#1]{1.0}(1) at (#2) {};}
+\newcommand{\nodeb}[3][]{\fk@sizednode[\colorb,shape border rotate=#3,#1]{1.0}(2) at (#2) {};}
+
+\newcommand{\fk@coordinates}{
+	\coordinate(front) at ($2*(forward)$);
+	\coordinate(fr) at ($(forward)+(right)$);
+	\coordinate(fl) at ($(forward)-(right)$);
+	\coordinate(bright) at ($\fk@bz*(right)$);
+	\coordinate(bforward) at ($\fk@bz*(forward)$);
+	\coordinate(Front) at ($2*(Forward)$);
+	\coordinate(FR) at ($(Forward)+(Right)$);
+	\coordinate(FL) at ($(Forward)-(Right)$);
+	\coordinate(Bright) at ($\fk@bz*(Right)$);
+	\coordinate(Bforward) at ($\fk@bz*(Forward)$);
+}
+
+\newcommand{\primeracolocacionb}[1][]{
+	\nodea[#1]{\fk@B}{0}\nodeb[#1]{\fk@T}{180}
+	\coordinate(right) at (\fk@ah,0);
+	\coordinate(forward) at (0,\fk@ah);
+	\coordinate(Right) at (\fk@R);
+	\coordinate(Forward) at (\fk@T);
+	\fk@coordinates
+}
+
+\newcommand{\primeracolocacionl}[1][]{
+	\nodea[#1]{\fk@L}{270}\nodeb[#1]{\fk@R}{90}
+	\coordinate(right) at (0,-\fk@ah);
+	\coordinate(forward) at (\fk@ah,0);
+	\coordinate(Right) at (\fk@B);
+	\coordinate(Forward) at (\fk@R);
+	\fk@coordinates
+}
+
+\newcommand{\primeracolocaciont}[1][]{
+	\nodea[#1]{\fk@T}{180}\nodeb[#1]{\fk@B}{0}
+	\coordinate(right) at (-\fk@ah,0);
+	\coordinate(forward) at (0,-\fk@ah);
+	\coordinate(Right) at (\fk@L);
+	\coordinate(Forward) at (\fk@B);
+	\fk@coordinates
+}
+
+\newcommand{\primeracolocacionr}[1][]{
+	\nodea[#1]{\fk@R}{90}\nodeb[#1]{\fk@L}{270}
+	\coordinate(right) at (0,\fk@ah);
+	\coordinate(forward) at (-\fk@ah,0);
+	\coordinate(Right) at (\fk@T);
+	\coordinate(Forward) at (\fk@L);
+	\fk@coordinates
+}
+
+\newcommand{\segundacolocacionbr}[1][]{
+	\nodea[#1]{\fk@BR}{45}\nodeb[#1]{\fk@TL}{225}
+	\coordinate(right) at (\fk@ah,\fk@ah);
+	\coordinate(forward) at (-\fk@ah,\fk@ah);
+	\coordinate(Right) at (\fk@TR);
+	\coordinate(Forward) at (\fk@TL);
+	\fk@coordinates
+}
+
+\newcommand{\segundacolocacionbl}[1][]{
+	\nodea[#1]{\fk@BL}{315}\nodeb[#1]{\fk@TR}{135}
+	\coordinate(right) at (\fk@ah,-\fk@ah);
+	\coordinate(forward) at (\fk@ah,\fk@ah);
+	\coordinate(Right) at (\fk@BR);
+	\coordinate(Forward) at (\fk@TR);
+	\fk@coordinates
+}
+
+\newcommand{\segundacolocaciontl}[1][]{
+	\nodea[#1]{\fk@TL}{225}\nodeb[#1]{\fk@BR}{45}
+	\coordinate(right) at (-\fk@ah,-\fk@ah);
+	\coordinate(forward) at (\fk@ah,-\fk@ah);
+	\coordinate(Right) at (\fk@BL);
+	\coordinate(Forward) at (\fk@BR);
+	\fk@coordinates
+}
+
+\newcommand{\segundacolocaciontr}[1][]{
+	\nodea[#1]{\fk@TR}{135}\nodeb[#1]{\fk@BL}{315}
+	\coordinate(right) at (-\fk@ah,\fk@ah);
+	\coordinate(forward) at (-\fk@ah,-\fk@ah);
+	\coordinate(Right) at (\fk@TL);
+	\coordinate(Forward) at (\fk@BL);
+	\fk@coordinates
+}
+
+\newcommandx{\encuentroac}[3][1,3]{
+	\fk@sizednode{#2}(n1) at ($(1)+\returnoffset*(fr)$) {};
+	\coordinate(n2) at ($(1)+#2*(front)-\returnoffset*(fl)$);
+	\coordinate(n3) at ($(1)+#2*(front)-\returnoffset*(fr)$);
+	\fk@sizednode{#2}(n4) at ($(1)+\returnoffset*(fl)$) {};
+	\draw[\colora,rounded corners=\nodesize*0.3,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4);
+}
+\newcommandx{\encuentroa}[1][1]{\encuentroac[#1]{1}}
+\newcommandx{\encuentrobc}[3][1,3]{
+	\fk@sizednode{#2}(n1) at ($(2)-\returnoffset*(fr)$) {};
+	\coordinate(n2) at ($(2)-#2*(front)+\returnoffset*(fl)$);
+	\coordinate(n3) at ($(2)-#2*(front)+\returnoffset*(fr)$);
+	\fk@sizednode{#2}(n4) at ($(2)-\returnoffset*(fl)$) {};
+	\draw[\colorb,rounded corners=\nodesize*0.3,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4);
+}
+\newcommandx{\encuentrob}[1][1]{\encuentrobc[#1]{1}}
+\newcommand{\encuentros}{\encuentroa\encuentrob}
+
+\newcommandx{\rhomboac}[3][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#2*(fr)$);
+	\coordinate(n3) at ($(nc)+#2*(forward)$);
+	\coordinate(n4) at ($(n1)+#2*(fl)$);
+	\draw[\colora,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4) to (n1);
+}
+\newcommandx{\rhomboa}[1][1]{\rhomboac[#1]{1}}
+\newcommandx{\rhombobc}[3][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#2*(fr)$);
+	\coordinate(n3) at ($(nc)-#2*(forward)$);
+	\coordinate(n4) at ($(n1)-#2*(fl)$);
+	\draw[\colorb,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4) to (n1);
+}
+\newcommandx{\rhombob}[1][1]{\rhombobc[#1]{1}}
+\newcommand{\rhombos}{\rhomboa\rhombob}
+
+\newcommandx{\contrarhomboac}[3][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#2*(fl)$);
+	\coordinate(n3) at ($(nc)+#2*(forward)$);
+	\coordinate(n4) at ($(n1)+#2*(fr)$);
+	\draw[\colora,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4) to (n1);
+}
+\newcommandx{\contrarhomboa}[1][1]{\contrarhomboac[#1]{1}}
+\newcommandx{\contrarhombobc}[3][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#2*(fl)$);
+	\coordinate(n3) at ($(nc)-#2*(forward)$);
+	\coordinate(n4) at ($(n1)-#2*(fr)$);
+	\draw[\colorb,#1](n1) to (n2) node[pos=0.5,right] {#3} to (n3) to (n4) to (n1);
+}
+\newcommandx{\contrarhombob}[1][1]{\contrarhombobc[#1]{1}}
+\newcommand{\contrarhombos}{\contrarhomboa\contrarhombob}
+
+\newcommandx{\giroac}[3][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#2*(fr)$);
+	\coordinate(n3) at ($(nc)+#2*(forward)$);
+	\coordinate(n4) at ($(n1)+#2*(fl)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colora,#1](n1)
+	.. controls ($(n1)+(sright)$) and ($(n2)-(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)+(sforward)$) and ($(n3)+(sright)$) .. (n3)
+	.. controls ($(n3)-(sright)$) and ($(n4)+(sforward)$) .. (n4)
+	.. controls ($(n4)-(sforward)$) and ($(n1)-(sright)$) .. (n1);
+}
+\newcommandx{\giroa}[1][1]{\giroac[#1]{1}}
+\newcommandx{\girobc}[3][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#2*(fr)$);
+	\coordinate(n3) at ($(nc)-#2*(forward)$);
+	\coordinate(n4) at ($(n1)-#2*(fl)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colorb,#1](n1)
+	.. controls ($(n1)-(sright)$) and ($(n2)+(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)-(sforward)$) and ($(n3)-(sright)$) .. (n3)
+	.. controls ($(n3)+(sright)$) and ($(n4)-(sforward)$) .. (n4)
+	.. controls ($(n4)+(sforward)$) and ($(n1)+(sright)$) .. (n1);
+}
+\newcommandx{\girob}[1][1]{\girobc[#1]{1}}
+\newcommand{\giros}{\giroa\girob}
+
+\newcommandx{\contragiroac}[3][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#2*(fl)$);
+	\coordinate(n3) at ($(nc)+#2*(forward)$);
+	\coordinate(n4) at ($(n1)+#2*(fr)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colora,#1](n1)
+	.. controls ($(n1)-(sright)$) and ($(n2)-(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)+(sforward)$) and ($(n3)-(sright)$) .. (n3)
+	.. controls ($(n3)+(sright)$) and ($(n4)+(sforward)$) .. (n4)
+	.. controls ($(n4)-(sforward)$) and ($(n1)+(sright)$) .. (n1);
+}
+\newcommandx{\contragiroa}[1][1]{\contragiroac[#1]{1}}
+\newcommandx{\contragirobc}[3][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#2*(fl)$);
+	\coordinate(n3) at ($(nc)-#2*(forward)$);
+	\coordinate(n4) at ($(n1)-#2*(fr)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colorb,#1](n1)
+	.. controls ($(n1)+(sright)$) and ($(n2)+(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)-(sforward)$) and ($(n3)+(sright)$) .. (n3)
+	.. controls ($(n3)-(sright)$) and ($(n4)-(sforward)$) .. (n4)
+	.. controls ($(n4)+(sforward)$) and ($(n1)-(sright)$) .. (n1);
+}
+\newcommandx{\contragirob}[1][1]{\contragirobc[#1]{1}}
+\newcommand{\contragiros}{\contragiroa\contragirob}
+
+\newcommandx{\mediavueltaac}[3][1,3]{
+	\fk@sizednode{#2}(n1) at ($#2*(1)$) {};
+	\coordinate(n2) at ($#2*(1)+#2*(FR)$);
+	\fk@sizednode{#2}(n3) at ($#2*(2)$) {};
+	\coordinate(Sright) at ($#2*(Bright)$);
+	\coordinate(Sforward) at ($#2*(Bforward)$);
+	\draw[\colora,#1](n1)
+	.. controls ($(n1)+(Sright)$) and ($(n2)-(Sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)+(Sforward)$) and ($(n3)+(Sright)$) .. (n3);
+}
+\newcommandx{\mediavueltaa}[1][1]{\mediavueltaac[#1]{1}}
+\newcommandx{\mediavueltabc}[3][1,3]{
+	\fk@sizednode{#2}(n1) at ($#2*(2)$) {};
+	\coordinate(n2) at ($#2*(2)-#2*(FR)$);
+	\fk@sizednode{#2}(n3) at ($#2*(1)$) {};
+	\coordinate(Sright) at ($#2*(Bright)$);
+	\coordinate(Sforward) at ($#2*(Bforward)$);
+	\draw[\colorb,#1](n1)
+	.. controls ($(n1)-(Sright)$) and ($(n2)+(Sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)-(Sforward)$) and ($(n3)-(Sright)$) .. (n3);
+}
+\newcommandx{\mediavueltab}[1][1]{\mediavueltabc[#1]{1}}
+\newcommand{\mediavueltas}{\mediavueltaa\mediavueltab}
+
+\newcommandx{\vueltaac}[3][1,3]{\mediavueltaac[>-,#1]{#2}[#3]\mediavueltabc[\colora,->,#1]{#2}[#3]}
+\newcommandx{\vueltaa}[1][1]{\vueltaac[#1]{1}}
+\newcommandx{\vueltabc}[3][1,3]{\mediavueltabc[>-,#1]{#2}[#3]\mediavueltaac[\colorb,->,#1]{#2}[#3]}
+\newcommandx{\vueltab}[1][1]{\vueltabc[#1]{1}}
+\newcommand{\vueltas}{\vueltaa\vueltabc{\fk@samescaling}}
+
+\newcommandx{\girofinalac}[3][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#2*(fr)$);
+	\fk@tinynode(n3) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n4) at ($(n1)+#2*(forward)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colora,#1](n1)
+	.. controls ($(n1)+(sright)$) and ($(n2)-(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)+(sforward)$) and ($(n3)+(sright)$) .. (n3);
+	\draw[\colora,#1,->](n3)
+	.. controls ($(n3)-(sright)$) and (n1) .. (n4)
+	to (\fk@C);
+}
+\newcommandx{\girofinala}[1][1=>-]{\girofinalac[#1]{1}}
+\newcommandx{\girofinalbc}[3][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#2*(fr)$);
+	\fk@tinynode(n3) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n4) at ($(n1)-#2*(forward)$);
+	\coordinate(sright) at ($#2*(bright)$);
+	\coordinate(sforward) at ($#2*(bforward)$);
+	\draw[\colorb,#1](n1)
+	.. controls ($(n1)-(sright)$) and ($(n2)+(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)-(sforward)$) and ($(n3)-(sright)$) .. (n3);
+	\draw[\colorb,#1,->](n3)
+	.. controls ($(n3)+(sright)$) and (n1) .. (n4)
+	to (\fk@C);
+}
+\newcommandx{\girofinalb}[1][1=>-]{\girofinalbc[#1]{1}}
+\newcommand{\girofinals}{\girofinala\girofinalb}
+
+\newcommandx{\smallvueltaac}[4][1,3]{
+	\coordinate(nc) at ($(1)+(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)-#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)+#4*#2*(fr)$);
+	\coordinate(n3) at ($(nc)+#4*#2*(forward)$);
+	\coordinate(n4) at ($(n1)+#4*#2*(fl)$);
+	\coordinate(sright) at ($#4*#2*(bright)$);
+	\coordinate(sforward) at ($#4*#2*(bforward)$);
+	\draw[\colora,#1](n1)
+	.. controls ($(n1)+(sright)$) and ($(n2)-(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)+(sforward)$) and ($(n3)+(sright)$) .. (n3)
+	.. controls ($(n3)-(sright)$) and ($(n4)+(sforward)$) .. (n4)
+	.. controls ($(n4)-(sforward)$) and ($(n1)-(sright)$) .. (n1);
+}
+\newcommandx{\smallvueltaa}[1][1]{\smallvueltaac[#1]{1}{.6}}
+\newcommandx{\smallvueltabc}[4][1,3]{
+	\coordinate(nc) at ($(2)-(forward)$);
+	\fk@sizednode{#2}(n1) at ($(nc)+#2*(forward)$) {};
+	\coordinate(n2) at ($(n1)-#4*#2*(fr)$);
+	\coordinate(n3) at ($(nc)-#4*#2*(forward)$);
+	\coordinate(n4) at ($(n1)-#4*#2*(fl)$);
+	\coordinate(sright) at ($#4*#2*(bright)$);
+	\coordinate(sforward) at ($#4*#2*(bforward)$);
+	\draw[\colorb,#1](n1)
+	.. controls ($(n1)-(sright)$) and ($(n2)+(sforward)$) .. (n2) node[pos=0.5,right] {#3}
+	.. controls ($(n2)-(sforward)$) and ($(n3)-(sright)$) .. (n3)
+	.. controls ($(n3)+(sright)$) and ($(n4)-(sforward)$) .. (n4)
+	.. controls ($(n4)+(sforward)$) and ($(n1)+(sright)$) .. (n1);
+}
+\newcommandx{\smallvueltab}[1][1]{\smallvueltabc[#1]{1}{.6}}
+\newcommand{\smallvueltas}{\smallvueltaa\smallvueltab}
+
+
+\endinput

@@ -2,25 +2,21 @@
 % Sa Wu, 2020-03-19
 \input{preamble.tex}
 
-% half the side length of cuadro de baile
-\newcommand{\unita}{20}
-% shortened half diagonal of cuadro de baile to make vuelta entera fit into same dimensions
-\newcommand{\unitb}{14}
-% half of the separation between couples in the middle
-\newcommand{\separation}{0.5}
-\newcommand{\padding}{4}
-
 % dimensions of things in diagrams
-\newcommand{\arrowlength}{8pt}
-\newcommand{\arrowwidth}{6pt}
-\newcommand{\nodesize}{6pt}
-\newcommand{\returnoffset}{0.1}
+\renewcommand{\arrowlength}{2mm}
+\renewcommand{\arrowwidth}{2mm}
+\renewcommand{\nodesize}{4mm}
 % color of dancer A, triangle
-\newcommand{\colora}{green}
+\renewcommand{\colora}{green}
 % color of dancer B, circle
-\newcommand{\colorb}{blue}
+\renewcommand{\colorb}{blue}
 
-\input{tikzhelpers}
+%adjust scales
+\newcommand{\afourth}{.24}
+\newcommand{\athird}{.325}
+\newcommand{\ahalf}{.48}
+\newcommand{\scalethree}{0.33}
+\newcommand{\scalefour}{0.25}
 
 \title{Some Diagrams of Folklore Argentino}
 \author{Sa Wu}
@@ -31,137 +27,651 @@
 \maketitle
 
 \clearpage
-\section{Caramba}
-\label{sec:caramba}
 
-\begin{figure}[h]
-	\includegraphics[width=\ahalf\textwidth]{caramba/caramba1.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\ahalf\textwidth]{caramba/caramba2.tikz}
+\begin{cuadrodebaile}[scale=1.]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
 
-	\includegraphics[width=\ahalf\textwidth]{caramba/caramba3.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\ahalf\textwidth]{caramba/caramba4.tikz}
-	\caption{Caramba}
-	\label{fig:caramba}
-\end{figure}
+\begin{cuadrodebaile}[scale=1./2]
+	\segundacolocacionbr[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./2]
+	\segundacolocacionbl[draw]
+	\giros
+\end{cuadrodebaile}
 
-\FloatBarrier
+\begin{cuadrodebaile}[scale=1./3]
+	\primeracolocacionl[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./3]
+	\primeracolocaciont[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./3]
+	\primeracolocacionr[draw]
+	\giros
+\end{cuadrodebaile}
+
+\begin{cuadrodebaile}[scale=1./4]
+	\segundacolocaciontl[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./4]
+	\segundacolocaciontr[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./4]
+	\segundacolocacionbr[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./4]
+	\segundacolocacionbl[draw]
+	\giros
+\end{cuadrodebaile}
+
+\begin{cuadrodebaile}[scale=1./5]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./5]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./5]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./5]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
+\begin{cuadrodebaile}[scale=1./5]
+	\primeracolocacionb[draw]
+	\giros
+\end{cuadrodebaile}
+
+\chapter{Chacarera Family}
+\label{chap:chacarera}
+
 \section{Chacarera}
 \label{sec:chacarera}
 
-\FloatBarrier
+\subsection{Chacarera Simple}
+\label{sec:chacarera:simple}
+
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\hspace*{\fill}
+	\subcaptionbox{
+		Avance y Retroceso (4) \label{fig:chacarera:simple:1}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\encuentros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Giro (4) \label{fig:chacarera:simple:2}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Vuelta Entera (V) \label{fig:chacarera:simple:3}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\vueltas
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	
+	\hspace*{\fill}
+	\subcaptionbox{
+		Zapateo/Sarandeo (8) \label{fig:chacarera:simple:4}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Vuelta Entera (V) \label{fig:chacarera:simple:5}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\vueltas
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Zapateo/Sarandeo (8) \label{fig:chacarera:simple:6}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Media Vuelta (4), Giro Final(4) \label{fig:chacarera:simple:7}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\mediavueltaa[>-]\mediavueltab[>-]
+			\primeracolocaciont
+			\girofinalac[-]{0.9}\girofinalbc[-]{0.9}
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\caption{Chacarera Simple, Vuelta Entera has V=6 or V=8 beats.}
+	\label{fig:chacarera:simple}
+\end{minipage}
+
+\subsection{Chacarera Doble}
+\label{sec:chacarera:doble}
+
+\begingroup
+	\captionsetup{type=figure}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Avance y Retroceso (4) \label{fig:chacarera:doble:1}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\encuentros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Rhombo (4) \label{fig:chacarera:doble:2}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\rhombos
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Giro (4) \label{fig:chacarera:doble:3}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Vuelta Entera (V) \label{fig:chacarera:doble:4}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\vueltas
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	
+	\hspace*{\fill}
+	\subcaptionbox{
+		Zapateo/Sarandeo (8) \label{fig:chacarera:doble:5}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Giro (4) \label{fig:chacarera:doble:6}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Vuelta Entera (V) \label{fig:chacarera:doble:7}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\vueltas
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Zapateo/Sarandeo (8) \label{fig:chacarera:doble:8}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Giro (4) \label{fig:chacarera:doble:9}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Media Vuelta (4) \label{fig:chacarera:doble:10}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\mediavueltaa[>-]\mediavueltab[>-]
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Zapateo/Sarandeo (4) \label{fig:chacarera:doble:11}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocaciont[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Giro Final (4) \label{fig:chacarera:doble:12}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocaciont[draw]
+			\girofinala\girofinalb
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	\caption{Chacarera Doble, Vuelta Entera has V=6 or V=8 beats.}
+	\label{fig:chacarera:doble}
+\endgroup
+
 \section{Gato}
+\label{sec:gato}
 
-\FloatBarrier
+\subsection{Gato cuyano}
+\label{subsec:gato_cuyano}
+
+\subsection{Gato norteño}
+\label{subsec:gato_norteno}
+
+\chapter{Danzas de Esquina}
+\label{chap:esquinas}
+
+
+
 \section{Escondido}
+\label{sec:escondido}
 
-\FloatBarrier
-\section{Firmeza}
+\section{Remedio atamisqueno}
+\label{sec:remedio_atamisqueno}
 
-\FloatBarrier
+\section{Remedio norteño}
+\label{sec:remedio_norteno}
+
+\chapter{Zamba Family}
+\label{chap:zamba}
+
 \section{Zamba}
 \label{sec:zamba}
 
-\FloatBarrier
-\section{Figures in different Collocations}
-\label{sec:figs_collocations}
+\section{Cueca nortena}
+\label{sec:cueca_nortena}
 
-\FloatBarrier
-\subsection{Colocación}
-\label{subsec:collocations}
+\section{Cueca cuyana}
+\label{sec:cueca_cuyana}
 
-\begin{figure}[h]
-	\includegraphics[width=\ahalf\textwidth]{colocaciones/primerab.tikz}
+\chapter{Single Song Dances}
+\label{chap:singlesong}
+
+\section{Caramba}
+\label{sec:caramba}
+
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
 	\hspace*{\fill}
-	\includegraphics[width=\ahalf\textwidth]{colocaciones/dosbr.tikz}
+	\subcaptionbox{
+		Giro (4), Contragiro (4) \label{fig:caramba:1}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\giroa[>-]\girob[>-]
+			\contragiroac[->]{0.8}\contragirobc[->]{0.8}
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Media Vuelta (4), Giro (4) \label{fig:caramba:2}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\mediavueltaa[>-]\mediavueltab[>-]
+			\primeracolocaciont
+			\giroac[->]{0.8}\girobc[->]{0.8}
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Contragiro (4), Giro (4) \label{fig:caramba:3}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocaciont[draw]
+			\contragiroa[>-]\contragirob[>-]
+			\giroac[->]{0.8}\girobc[->]{0.8}
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	
+	\hspace*{\fill}
+	\subcaptionbox{
+		Media Vuelta (4), Giro (4) \label{fig:caramba:4}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocaciont[draw]
+			\mediavueltaa[>-]\mediavueltab[>-]
+			\primeracolocacionb
+			\giroac[->]{0.8}\girobc[->]{0.8}
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Media Vuelta (3), Giro Final (3) \label{fig:caramba:5}
+	}[\athird\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalethree]
+			\primeracolocacionb[draw]
+			\mediavueltaa[>-]\mediavueltab[>-]
+			\primeracolocaciont
+			\girofinalac[-]{0.8}\girofinalbc[-]{0.8}
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	
+	\caption{Caramba}
+	\label{fig:caramba}
+\end{minipage}
+
+\section{Firmeza}
+\label{sec:firmeza}
+
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\hspace*{\fill}
+	\subcaptionbox{
+		1. Que me mandaste a decir \\
+		que te amara con firmeza \\
+		2. Antenoche me confesé \\
+		con el cura de Santa Clara \label{fig:firmeza:1}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		instrumental \label{fig:firmeza:2}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionl[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		1. pero nadie está obligado \\
+		a guardar correspondencia. \\
+		2. y me dio de penitencia \\
+		que La Firmeza bailara. \label{fig:firmeza:3}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocaciont[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		instrumental \label{fig:firmeza:4}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionr[draw]
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Darás una vuelta \\
+		con tu compañera \label{fig:firmeza:5}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\vueltas
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		con la tras trasera \\
+		con la delantera \label{fig:firmeza:6}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Con ese costado \\
+		con el otro lado \label{fig:firmeza:7}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		con ese modito \\
+		ponele el codito. \label{fig:firmeza:8}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Ponele el oído \\
+		también los sentidos \label{fig:firmeza:9}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		cómo corresponde \\
+		pon la mano al hombro \label{fig:firmeza:10}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		Retirate un paso \\
+		dámele un abrazo \label{fig:firmeza:11}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		otro poquitito \\
+		tírale un besito \label{fig:firmeza:12}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\giros
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+
+	\hspace*{\fill}
+	\subcaptionbox{
+		Ay, que no, no, no \\
+		que me da vergüenza \label{fig:firmeza:13}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		tápate la cara \\
+		que te doy licencia. \label{fig:firmeza:14}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\rhombob
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		La ra la la laraira, \\
+		la ra la la laraira, \label{fig:firmeza:15}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocacionb[draw]
+			\mediavueltas
+		\end{cuadrodebaile}
+	}
+	\subcaptionbox{
+		La ra la la laraira, \\
+		La primera se acabo. \label{fig:firmeza:16}
+	}[\afourth\linewidth]{
+		\begin{cuadrodebaile}[scale=\scalefour]
+			\primeracolocaciont[draw]
+			\girofinals
+		\end{cuadrodebaile}
+	}
+	\hspace*{\fill}
+	\caption{La Firmeza}
+	\label{fig:firmeza}
+\end{minipage}
+
+\iffalse
+
+\FloatBarrier
+\chapter{Figures and Colocaciónes}
+\label{chap:figs_collocations}
+
+This chapter contains plots of all figures and positions.
+
+\section{Colocaciónes}
+\label{sec:colocaciones}
+
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:colocaciones:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{colocaciones/primerab.tikz}}
+	\hspace*{\fill}
+	\subcaptionbox{Segunda Colocación\\The positions are shifted slightly inside to allow for the Vuelta Entera (\autoref{sec:vuelta}) to fit into the same square.
+	\label{fig:colocaciones:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{colocaciones/dosbr.tikz}}
 	\caption{Colocaciónes}
-	\label{fig:collocations:1}
-\end{figure}
+	\label{fig:colocaciones}
+\end{minipage}
 
-\FloatBarrier
-\subsection{Avance y Retroceso}
-\label{subsec:encuentro}
+\section{Avance y Retroceso}
+\label{sec:encuentro}
 
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{encuentros/encuentrosb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:encuentro:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{encuentros/encuentrosb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{encuentros/encuentrost.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{encuentros/encuentrosbr.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:encuentro:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{encuentros/encuentrosbr.tikz}}
 	\caption{Avance y Retroceso}
 	\label{fig:encuentro}
-\end{figure}
+\end{minipage}
 
-\FloatBarrier
+\section{Rhombo}
+\label{sec:rhombo}
 
-\subsection{Rhombo}
-\label{subsec:rhombo}
-
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{rhombos/rhombosb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:rhombo:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{rhombos/rhombosb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{rhombos/rhombost.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{rhombos/rhombosbl.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:rhombo:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{rhombos/rhombosbr.tikz}}
 	\caption{Rhombo}
 	\label{fig:rhombo}
-\end{figure}
+\end{minipage}
 
-\FloatBarrier
-\subsection{Giro}
-\label{subsec:giros}
+\section{Giro}
+\label{sec:giros}
 
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{giros/girosb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:giros:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{giros/girosb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{giros/girost.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{giros/girosbr.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:giros:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{giros/girosbr.tikz}}
 	\caption{Giro}
 	\label{fig:giros}
-\end{figure}
+\end{minipage}
 
-\FloatBarrier
-\subsection{Contragiro}
-\label{subsec:contragiros}
+\section{Contragiro}
+\label{sec:contragiros}
 
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{contragiros/contragirosb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:contragiro:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{contragiros/contragirosb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{contragiros/contragirost.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{contragiros/contragirosbl.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:contragiro:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{contragiros/contragirosbr.tikz}}
 	\caption{Contragiro}
 	\label{fig:contragiro}
-\end{figure}
+\end{minipage}
 
-\FloatBarrier
-\subsection{Media Vuelta}
-\label{subsec:mediavuelta}
+\section{Media Vuelta}
+\label{sec:mediavuelta}
 
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltasb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:mediavuelta:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{mediavueltas/mediavueltasb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltast.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{mediavueltas/mediavueltasbr.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:mediavuelta:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{mediavueltas/mediavueltasbr.tikz}}
 	\caption{Media Vuelta}
 	\label{fig:mediavuelta}
-\end{figure}
+\end{minipage}
 
 \FloatBarrier
-\subsection{Vuelta Entera}
-\label{subsec:vuelta}
+\section{Vuelta Entera}
+\label{sec:vuelta}
 
-\begin{figure}[h]
-	\includegraphics[width=\athird\textwidth]{vueltas/vueltasb.tikz}
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:vuelta:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{vueltas/vueltasb.tikz}}
 	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{vueltas/vueltast.tikz}
-	\hspace*{\fill}
-	\includegraphics[width=\athird\textwidth]{vueltas/vueltasbr.tikz}
+	\subcaptionbox{Segunda Colocación\label{fig:vuelta:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{vueltas/vueltasbr.tikz}}
 	\caption{Vuelta Entera}
 	\label{fig:vuelta}
-\end{figure}
+\end{minipage}
 
+\FloatBarrier
+\section{Giro Final}
+\label{sec:girofinal}
+
+\begin{minipage}{\linewidth}
+	\captionsetup{type=figure}
+	\subcaptionbox{Primera Colocación\label{fig:girofinal:1}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{girofinal/girofinalb.tikz}}
+	\hspace*{\fill}
+	\subcaptionbox{Segunda Colocación\label{fig:girofinal:2}}[\ahalf\linewidth]
+	{\includegraphics[width=\linewidth]{girofinal/girofinalbr.tikz}}
+	\caption{Giro Final}
+	\label{fig:girofinal}
+\end{minipage}
+\fi
 \end{document}
